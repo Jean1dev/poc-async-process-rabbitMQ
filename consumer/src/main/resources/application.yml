@@ -1,0 +1,17 @@
+
+server:
+  port: 8001
+
+spring:
+  rabbitmq:
+    request:
+      host: localhost
+      port: 5672
+      username: guest
+      password: guest
+      exchange:
+        producer: ex.producer.poc
+      routing-key:
+        producer: queue.producer.poc
+      deadletter:
+        producer: dl.producer.poc

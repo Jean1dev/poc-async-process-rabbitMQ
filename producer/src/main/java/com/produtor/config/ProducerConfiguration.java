@@ -13,13 +13,13 @@ import java.util.HashMap;
 @Configuration
 public class ProducerConfiguration {
 
-    @Value("${spring.request.rabbitmq.routing-key.producer}")
+    @Value("${spring.rabbitmq.request.routing-key.producer}")
     private String queue;
 
-    @Value("${spring.request.rabbitmq.exchange.producer}")
+    @Value("${spring.rabbitmq.request.exchange.producer}")
     private String exchange;
 
-    @Value("${spring.request.rabbitmq.deadletter.producer}")
+    @Value("${spring.rabbitmq.request.deadletter.producer}")
     private String deadLetter;
 
     @Bean
