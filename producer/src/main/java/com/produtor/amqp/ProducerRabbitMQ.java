@@ -23,6 +23,7 @@ public class ProducerRabbitMQ implements AMQPProducer<Message> {
     public void producer(Message message) {
         try {
             rabbitTemplate.convertAndSend(exchange, queue, message);
+            rabbitTemplate.convertAndSend(exchange, "fila-2-teste", message);
         } catch (Exception e) {
             throw new AmqpRejectAndDontRequeueException(e);
         }

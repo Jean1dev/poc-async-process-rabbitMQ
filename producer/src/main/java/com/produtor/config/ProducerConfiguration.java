@@ -42,16 +42,24 @@ public class ProducerConfiguration {
     }
 
     @Bean
-    public Binding binding() {
+    public Binding binding(DirectExchange exchange) {
         return BindingBuilder.bind(queue())
-                .to(exchange())
+                .to(exchange)
                 .with(queue);
     }
 
     @Bean
-    public Binding bindingDeadLetter() {
+    public Binding binding2(DirectExchange exchange) {
+        String queue2 = "fila-2-teste";
+        return BindingBuilder.bind(new Queue(queue2, true, false, false))
+                .to(exchange)
+                .with(queue2);
+    }
+
+    @Bean
+    public Binding bindingDeadLetter(DirectExchange exchange) {
         return BindingBuilder.bind(deadLetter())
-                .to(exchange())
+                .to(exchange)
                 .with(deadLetter);
     }
 }
